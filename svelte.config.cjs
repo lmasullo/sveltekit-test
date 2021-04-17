@@ -15,12 +15,12 @@ module.exports = {
 		target: '#svelte',
 
 		vite: {
-			// ssr: {
-			// 	noExternal: Object.keys(pkg.dependencies || {})
-			// }
-			optimizeDeps: {
-        include: ['graphql-request']
-      }
+			ssr: {
+				noExternal: Object.keys(pkg.dependencies || {})
+			}
+			// optimizeDeps: {
+      //   include: ['graphql-request']
+      // }
 		}
 	}
 };

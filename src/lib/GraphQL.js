@@ -1,4 +1,5 @@
 import { GraphQLClient } from "graphql-request";
+//import * as GraphQLClient from "graphql-request";
 
 let evalTemplates
 
