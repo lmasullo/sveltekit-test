@@ -1,34 +1,32 @@
 <script>
-  import { GraphQLClient } from "graphql-request";
+  //import { GraphQLClient } from "graphql-request";
   //import { default as GraphQLClient } from "graphql-request";
   import Counter from "$lib/Counter.svelte";
+  import evalTemplates from "$lib/GraphQL.js";
   import { onMount } from "svelte";
 
   // onMount Lifecycle
   onMount(async () => {
-    const endpoint = "https://api.8base.com/ckb9f8fky000207lb1vuoc6kv";
-
-    const MY_TOKEN = "6d8d2cba-7ee7-4b33-b84d-8a7ea2e4691b";
-
-    const graphQLClient = new GraphQLClient(endpoint, {
-      headers: {
-        authorization: `Bearer ${MY_TOKEN}`,
-      },
-    });
-
-    const query = `
-      {
-        edshiftsresEvalTemplatesList(filter: { deleted: { equals: false } }) {
-          items {
-            id
-            templateName
-          }
-        }
-      }
-    `;
-
-    const data = await graphQLClient.request(query);
-    console.log(JSON.stringify(data, undefined, 2));
+    console.log("Imported evalTemplates: ", evalTemplates);
+    // const endpoint = "https://api.8base.com/ckb9f8fky000207lb1vuoc6kv";
+    // const MY_TOKEN = "6d8d2cba-7ee7-4b33-b84d-8a7ea2e4691b";
+    // const graphQLClient = new GraphQLClient(endpoint, {
+    //   headers: {
+    //     authorization: `Bearer ${MY_TOKEN}`,
+    //   },
+    // });
+    // const query = `
+    //   {
+    //     edshiftsresEvalTemplatesList(filter: { deleted: { equals: false } }) {
+    //       items {
+    //         id
+    //         templateName
+    //       }
+    //     }
+    //   }
+    // `;
+    // const data = await graphQLClient.request(query);
+    // console.log(JSON.stringify(data, undefined, 2));
   });
 </script>
 
