@@ -11,11 +11,12 @@
     "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "next",
     "svelte": "^3.29.0",
-    "vite": "^2.1.0"
+    "vite": "^2.1.0",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0"
   },
   "type": "module",
   "dependencies": {
-    "graphql": "^15.5.0",
-    "graphql-request": "^3.4.0"
+    
   }
 }
