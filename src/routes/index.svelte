@@ -1,5 +1,6 @@
 <script>
-  import { GraphQLClient, gql } from "graphql-request";
+  import { GraphQLClient } from "graphql-request";
+  //import { default as GraphQLClient } from "graphql-request";
   import Counter from "$lib/Counter.svelte";
   import { onMount } from "svelte";
 
@@ -9,25 +10,25 @@
 
     const MY_TOKEN = "6d8d2cba-7ee7-4b33-b84d-8a7ea2e4691b";
 
-    // const graphQLClient = new GraphQLClient(endpoint, {
-    //   headers: {
-    //     authorization: `Bearer ${MY_TOKEN}`,
-    //   },
-    // });
+    const graphQLClient = new GraphQLClient(endpoint, {
+      headers: {
+        authorization: `Bearer ${MY_TOKEN}`,
+      },
+    });
 
-    // const query = gql`
-    //   {
-    //     edshiftsresEvalTemplatesList(filter: { deleted: { equals: false } }) {
-    //       items {
-    //         id
-    //         templateName
-    //       }
-    //     }
-    //   }
-    // `;
+    const query = `
+      {
+        edshiftsresEvalTemplatesList(filter: { deleted: { equals: false } }) {
+          items {
+            id
+            templateName
+          }
+        }
+      }
+    `;
 
-    // const data = await graphQLClient.request(query);
-    // console.log(JSON.stringify(data, undefined, 2));
+    const data = await graphQLClient.request(query);
+    console.log(JSON.stringify(data, undefined, 2));
   });
 </script>
 
