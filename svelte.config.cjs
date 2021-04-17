@@ -18,6 +18,9 @@ module.exports = {
 			// ssr: {
 			// 	noExternal: Object.keys(pkg.dependencies || {})
 			// }
+			optimizeDeps: {
+        include: ['graphql-request']
+      }
 		}
 	}
 };
