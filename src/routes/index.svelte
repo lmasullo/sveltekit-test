@@ -1,13 +1,22 @@
+<script context="module">
+  //import { GraphQLClient } from "graphql-request";
+</script>
+
 <script>
-  import { GraphQLClient } from "graphql-request";
+  // import { GraphQLClient } from "graphql-request";
   //import { default as GraphQLClient } from "graphql-request";
   import Counter from "$lib/Counter.svelte";
 
   import { onMount } from "svelte";
 
+  let GraphQLClient;
+
   // onMount Lifecycle
   onMount(async () => {
     //import evalTemplates from "$lib/GraphQL.js";
+
+    const module = await import("graphql-request");
+    GraphQLClient = module.GraphQLClient;
 
     //console.log("Imported evalTemplates: ", evalTemplates);
     const endpoint = "https://api.8base.com/ckb9f8fky000207lb1vuoc6kv";
