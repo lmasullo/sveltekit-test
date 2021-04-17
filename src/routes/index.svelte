@@ -1,10 +1,34 @@
 <script>
-  import { request, gql } from "graphql-request";
+  import { GraphQLClient, gql } from "graphql-request";
   import Counter from "$lib/Counter.svelte";
   import { onMount } from "svelte";
 
   // onMount Lifecycle
-  onMount(async () => {});
+  onMount(async () => {
+    const endpoint = "https://api.8base.com/ckb9f8fky000207lb1vuoc6kv";
+
+    const MY_TOKEN = "6d8d2cba-7ee7-4b33-b84d-8a7ea2e4691b";
+
+    const graphQLClient = new GraphQLClient(endpoint, {
+      headers: {
+        authorization: `Bearer ${MY_TOKEN}`,
+      },
+    });
+
+    const query = gql`
+      {
+        edshiftsresEvalTemplatesList(filter: { deleted: { equals: false } }) {
+          items {
+            id
+            templateName
+          }
+        }
+      }
+    `;
+
+    const data = await graphQLClient.request(query);
+    console.log(JSON.stringify(data, undefined, 2));
+  });
 </script>
 
 <svelte:head>
